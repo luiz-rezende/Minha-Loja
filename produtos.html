@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - Minha Loja</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header{
+      background: #333;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+
+    header h1{
+      font-size: 1.5rem;
+    }
+
+    header nav a{
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    header nav a:hover{
+      color: #ffdd59;
+    }
+
+    .titulo{
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .produtos{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+
+    .card{
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover{
+      transform: translateY(-5px);
+    }
+
+    .card img{
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3{
+      margin-bottom: .5rem;
+    }
+
+    .card p{
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .card button{
+      width: 100%;
+      padding: .7rem;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .card button:hover{
+      background: #1e3799;
+    }
+
+    footer{
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    #carrinho {
+      position: fixed;
+      top: 20%;
+      right: 20px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      display: none;
+      width: 200px;
+    }
+
+    #carrinho h4 {
+      margin-bottom: .5rem;
+    }
+
+    #carrinho ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    #carrinho ul li {
+      font-size: .9rem;
+      margin-bottom: 5px;
+    }
+
+    #carrinho button {
+      width: 100%;
+      padding: .5rem;
+      background: #ff4757;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #carrinho button:hover {
+      background: #e84118;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Minha Loja</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
+
+  <h2 class="titulo">Nossos Produtos</h2>
+
+  <section class="produtos">
+    <div class="card">
+      <img src="img/alexa.png" alt="Produto A">
+      <h3>Garmin Venu 3</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Produto A')">Adicionar ao Carrinho</button>
+    </div>
+    <div class="card">
+      <img src="img/camera.png" alt="Produto B">
+      <h3>Câmera digital Canon EOS R10</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Produto B')">Adicionar ao Carrinho</button>
+    </div>
+    <div class="card">
+      <img src="img/celular.png" alt="Produto C">
+      <h3>Samsung Galaxy S24</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Produto C')">Adicionar ao Carrinho</button>
+    </div>
+    <div class="card">
+      <img src="img/drone.png" alt="Produto D">
+      <h3>Drone DJI Mini 4 Pro</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Produto D')">Adicionar ao Carrinho</button>
+    </div>
+    <div class="card">
+      <img src="img/fone.png" alt="Produto E">
+      <h3>Fone de ouvido sem fio Sony WH-1000XM5</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Produto E')">Adicionar ao Carrinho</button>
+    </div>
+  </section>
+
+  <div id="carrinho">
+    <h4>Carrinho</h4>
+    <ul id="listaCarrinho"></ul>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Minha Loja | Luiz Guilherme </p>
+  </footer>
+
+  <script>
+    let carrinho = [];
+
+    function adicionarCarrinho(produto){
+      carrinho.push(produto);
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho(){
+      let lista = document.getElementById("listaCarrinho");
+      lista.innerHTML = "";
+      carrinho.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item;
+        lista.appendChild(li);
+      });
+      document.getElementById("carrinho").style.display = "block";
+    }
+
+    function finalizarCompra(){
+      alert("Compra finalizada! Obrigado por comprar conosco.");
+      carrinho = [];
+      atualizarCarrinho();
+      document.getElementById("carrinho").style.display = "none";
+    }
+  </script>
+</body>
+</html>

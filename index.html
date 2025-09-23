@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loja Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Minha Loja</div>
+      <div class="menu">
+        <a href="produtos.html">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Bem-vindo à nossa loja!</h1>
+    <p>Encontre os melhores produtos com descontos exclusivos!</p>
+    <a href="produtos.html"><button>Ver Produtos</button></a>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="produtos-list">
+      <!-- Produto 1 -->
+      <div class="produto">
+        <img src="img/celular.png" alt="Produto 1">
+        <h3>Samsung Galaxy S24</h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="1" data-nome="Produto 1" data-preco="99.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 2 -->
+      <div class="produto">
+        <img src="img/notebook.png" alt="Produto 2">
+        <h3>Dell XPS 13 </h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="2" data-nome="Produto 2" data-preco="149.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 3 -->
+      <div class="produto">
+        <img src="img/alexa.png" alt="Produto 3">
+        <h3>Garmin Venu 3 </h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="3" data-nome="Produto 3" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 4 -->
+      <div class="produto">
+        <img src="img/fone.png" alt="Produto 4">
+        <h3>Fone de ouvido sem fio Sony WH-1000XM5 </h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="4" data-nome="Produto 4" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 5 -->
+      <div class="produto">
+        <img src="img/relogio.png" alt="Produto 5">
+        <h3>Smartwatch Garmin Venu 3</h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="5" data-nome="Produto 5" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 6 -->
+      <div class="produto">
+        <img src="img/tablet.png" alt="Produto 6">
+        <h3>Tablet Microsoft Surface Pro 9 com stylus</h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="6" data-nome="Produto 6" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 7 -->
+      <div class="produto">
+        <img src="img/drone.png" alt="Produto 7">
+        <h3>Drone DJI Mini 4 Pro </h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="7" data-nome="Produto 7" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+      <!-- Produto 8 -->
+      <div class="produto">
+        <img src="img/camera.png" alt="Produto 8">
+        <h3>Câmera digital Canon EOS R10 </h3>
+        <p>R$ 00,00</p>
+        <button class="add-to-cart" data-id="8" data-nome="Produto 8" data-preco="199.99">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Minha Loja | Luiz Guilherme </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
